@@ -94,6 +94,9 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     rmnetcli
 
+#dexpreopt
+PRODUCT_DEX_PREOPT_BOOT_FLAGS := --compiler-filter=space
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8226 \
@@ -297,4 +300,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # IO Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
-
