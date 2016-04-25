@@ -18,11 +18,15 @@
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-smd"
 
 # Architecture
-TARGET_ARCH 		:= arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI 		:= armeabi-v7a
-TARGET_CPU_ABI2 	:= armeabi
-TARGET_CPU_VARIANT 	:= cortex-a7
+TARGET_ARCH 				:= arm
+TARGET_ARCH_VARIANT 		:= armv7-a-neon
+TARGET_CPU_ABI 				:= armeabi-v7a
+TARGET_CPU_ABI2 			:= armeabi
+TARGET_CPU_SMP 				:= true
+TARGET_CPU_VARIANT 			:= cortex-a7
+TARGET_GLOBAL_CFLAGS 		+= -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS 		+= -mfpu=neon -mfloat-abi=softfp
+ART_USE_OPTIMIZING_COMPILER := true
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8226
@@ -31,6 +35,7 @@ USE_CLANG_PLATFORM_BUILD := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_FLUENCE_INCALL := true
 AUDIO_FEATURE_ENABLED_FM := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
@@ -140,8 +145,6 @@ ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),userdebug)
     ifeq ($(WITH_DEXPREOPT),)
       WITH_DEXPREOPT := true
-      DONT_DEXPREOPT_PREBUILTS := false
-      LOCAL_DEX_PREOPT := false
       WITH_DEXPREOPT_BOOT_IMG_ONLY := true
     endif
   endif
