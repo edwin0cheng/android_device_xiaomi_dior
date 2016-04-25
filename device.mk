@@ -300,3 +300,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # IO Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
+
+# set default USB configuration
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    sys.usb.config=mtp,adb \
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0 \
