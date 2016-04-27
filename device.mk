@@ -198,6 +198,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libdivxdrmdecrypt \
+    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -205,6 +206,7 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
+    libOmxVidcCommon \
     libstagefrighthw
 
 # Permissions
@@ -245,7 +247,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # CMActions
 PRODUCT_PACKAGES += \
-    CMActions
+    CMActions \
+    libjni_CMActions
 
 # Ramdisk
 PRODUCT_PACKAGES += \

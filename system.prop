@@ -7,9 +7,9 @@ ro.qc.sdk.audio.ssr=false
 ro.qc.sdk.audio.fluencetype=fluence
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=true
-persist.audio.fluence.speaker=false
+persist.audio.fluence.speaker=true
 audio.offload.video=false
-audio.offload.disable=true
+audio.offload.disable=false
 use.voice.path.for.pcm.voip=true
 
 # Display
@@ -19,6 +19,12 @@ debug.sf.hw=1
 debug.composition.type=c2d
 persist.hwc.mdpcomp.enable=true
 debug.mdpcomp.logs=0
+# GLES doesn't support secure display, to allow google play movies
+# and other apps that require a secure display we need to enable this:
+persist.hwc.mdpcomp.enable=true
+
+# Gps Smart Battery Savings (depends on sensor hub)
+persist.mot.gps.smart_battery=1
 
 # Media
 media.stagefright.enable-player=true
@@ -36,6 +42,7 @@ rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 ril.subscription.types=RUIM
 persist.data.netmgrd.qos.enable=true
+persist.data.qmi.adb_logmask=0
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.dont_use_dsd=true
 persist.radio.msgtunnel.start=false
@@ -48,3 +55,6 @@ ro.device.gpu=Qualcomm Adreno 305
 ro.device.rear_cam=13 MP
 ro.device.front_cam=5 MP
 ro.device.screen_res=1280 x 720 IPS LCD
+
+# Wifi
+ro.disableWifiApFirmwareReload=true

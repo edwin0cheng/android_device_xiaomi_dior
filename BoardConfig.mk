@@ -24,6 +24,7 @@ TARGET_CPU_ABI 				:= armeabi-v7a
 TARGET_CPU_ABI2 			:= armeabi
 TARGET_CPU_SMP 				:= true
 TARGET_CPU_VARIANT 			:= cortex-a7
+
 TARGET_GLOBAL_CFLAGS 		+= -mfpu=neon-vfpv4 -mfloat-abi=hard
 TARGET_GLOBAL_CPPFLAGS 		+= -mfpu=neon-vfpv4 -mfloat-abi=hard
 ART_USE_OPTIMIZING_COMPILER := true
@@ -36,15 +37,19 @@ USE_CLANG_PLATFORM_BUILD := true
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_FLUENCE_INCALL := true
+AUDIO_FEATURE_ENABLED_EXTERNAL_SPEAKER := true
 AUDIO_FEATURE_ENABLED_FM := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
+AUDIO_FEATURE_ENABLED_USBAUDIO := true
+USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/dior/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
+QCOM_BT_USE_SMD_TTY := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
@@ -183,6 +188,9 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 TARGET_USES_QCOM_WCNSS_QMI := true
+
+# Enable workaround for slow rom flash
+BOARD_SUPPRESS_SECURE_ERASE := true
 
 # inherit from the proprietary version
 -include vendor/xiaomi/dior/BoardConfigVendor.mk
