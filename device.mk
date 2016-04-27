@@ -247,8 +247,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # CMActions
 PRODUCT_PACKAGES += \
-    CMActions \
-    libjni_CMActions
+    CMActions
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -264,6 +263,10 @@ PRODUCT_COPY_FILES += \
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
+
+# Torch
+PRODUCT_PACKAGES += \
+    Torch    
 
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
@@ -290,10 +293,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libcurl \
+    libcnefeatureconfig \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     wcnss_service \
-    libwcnss_qmi
+    libwcnss_qmi \
+    libxml2
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
