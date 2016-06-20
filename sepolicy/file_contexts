@@ -1,6 +1,9 @@
 # Camera
 /data/cam_socket.*                                 u:object_r:camera_socket:s0
 
+# Double tap to wake
+/sys/android_touch/doubletap2wake                  u:object_r:sysfs_hardware:s0
+
 # Vibrator
 /sys/class/timed_output/vibrator/amp               u:object_r:vibeamp_sysfs:s0
 
